@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 import com.api.demo.model.Produto;
+import com.api.demo.model.exception.ResourceNotFoundExcepition;
 
 @Repository
 public class ProdutoRepository {
@@ -45,7 +46,7 @@ public class ProdutoRepository {
 
         if(produtoEncontrado.isEmpty()){
 
-            throw new InputMismatchException("Produto não encontrado!");
+            throw new ResourceNotFoundExcepition("Produto não encontrado!");
         }
 
         deletar(produto.getId());
